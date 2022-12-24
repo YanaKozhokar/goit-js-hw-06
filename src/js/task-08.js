@@ -15,4 +15,5 @@ formInputHandler.addEventListener("submit", (event) => {
   } catch (exception) {
     alert(exception);
   }
+  console.log(inputObject);
 });
