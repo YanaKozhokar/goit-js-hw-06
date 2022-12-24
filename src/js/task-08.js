@@ -1,6 +1,6 @@
 const formInputHandler = document.querySelector(".login-form");
 const inputFormRef = document.querySelectorAll("form input");
-const submitBtnRef = document.querySelector("button[type='submit']");
+let inputObject = {};
 
 formInputHandler.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -9,6 +9,7 @@ formInputHandler.addEventListener("submit", (event) => {
       if (el.value === "") {
         throw "All fildes must be filled!";
       } else {
+        inputObject[el.name] = el.value;
       }
     });
   } catch (exception) {
