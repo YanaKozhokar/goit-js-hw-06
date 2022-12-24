@@ -11,4 +11,3 @@ inputValidation.addEventListener("blur", () => {
     inputValidation.classList.add("invalid");
   }
 });
-console.log(inputValidation.getAttribute("data-length"));
