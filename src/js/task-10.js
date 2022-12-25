@@ -13,7 +13,7 @@ function createBoxes(amount) {
   let height = 30;
   for (let i = 0; i < amount; i += 1) {
     boxesArray.push(
-      `<div width="${width}" heigth="${height}" style="background-color:${getRandomHexColor()}"></div>`
+      `<div style="background-color: ${getRandomHexColor()};  width: ${width}px; height: ${height}px;></div>`
     );
     width += 10;
     height += 10;
@@ -26,4 +26,10 @@ btnCreateClickHandler.addEventListener("click", () => {
     "beforeend",
     boxesArray.map((el) => el).join("")
   );
+});
+
+btnDestroyClickHandler.addEventListener("click", () => {
+  document.querySelectorAll("#boxes > div").forEach((el) => {
+    el.remove();
+  });
 });
