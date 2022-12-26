@@ -1,20 +1,22 @@
-const formInputHandler = document.querySelector(".login-form");
-const inputFormRef = document.querySelectorAll("form input");
-let inputObject = {};
-
-formInputHandler.addEventListener("submit", (event) => {
+const formEl = document.querySelector(".login-form");
+const inputEl = document.querySelectorAll("input");
+formEl.addEventListener("submit", onFormSubmit);
+function onFormSubmit(event) {
   event.preventDefault();
-  try {
-    inputFormRef.forEach((el) => {
-      if (el.value === "") {
-        throw "All fildes must be filled!";
-      } else {
-        inputObject[el.name] = el.value;
-      }
-    });
-  } catch (exception) {
-    alert(exception);
-  }
-  event.currentTarget.reset();
-});
-console.log(inputObject);
+  const formElements = event.currentTarget.elements;
+  const addAlert = () => {
+    if (inputEl[0].value === "" || inputEl[1].value === "") {
+      alert("Всі поля мають бути заповнені!!!");
+    } else {
+      const email = formElements.email.value;
+      const password = formElements.password.value;
+      const formData = {
+        email,
+        password,
+      };
+      console.log(formData);
+      event.currentTarget.reset();
+    }
+  };
+  addAlert();
+}
